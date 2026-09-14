@@ -655,7 +655,7 @@
   }
   .toast {
     font-size: 11px;
-    bottom: 18px;
+    bottom: calc(18px + env(safe-area-inset-bottom));
   }
   .t-dialog__body {
     padding: 16px !important;

@@ -279,6 +279,10 @@
   padding: 15px 0;
   color: var(--preview-accent);
 }
+/* Native TDesign controls inside the dark preview should render dark. */
+.preview-frame[data-preview-mode="dark"] {
+  color-scheme: dark;
+}
 .preview-frame .t-switch:not(.t-is-checked) {
   background-color: var(--preview-muted);
 }

@@ -16,6 +16,7 @@
   width: 100%;
   height: min(42vh, 370px);
   resize: vertical;
+  overscroll-behavior: contain;
   background: #172030;
   color: #dbe8ff;
   border: 1px solid #172030;
@@ -32,6 +33,10 @@
   line-height: 1.8;
   margin-top: 9px;
 }
+/* Keep dialog scroll from chaining to the page behind it. */
+.t-dialog {
+  overscroll-behavior: contain;
+}
 .export-actions {
   display: flex;
   justify-content: flex-end;
@@ -40,7 +45,7 @@
 .toast {
   position: fixed;
   left: 50%;
-  bottom: 30px;
+  bottom: calc(30px + env(safe-area-inset-bottom));
   transform: translate(-50%, 12px);
   opacity: 0;
   transition:

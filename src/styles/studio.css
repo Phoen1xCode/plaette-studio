@@ -447,6 +447,7 @@
   font-size: 10px;
   margin: 0;
   font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 .contrast-detail {
   border-left: 1px solid var(--line);
@@ -475,6 +476,7 @@
   font-family: "Manrope Variable", sans-serif;
   font-size: 10px;
   white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 .contrast-item small {
   display: block;
