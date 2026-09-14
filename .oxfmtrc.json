@@ -1,5 +1,13 @@
 {
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
   "printWidth": 80,
-  "ignorePatterns": ["dist/**", "*.min.js"]
+  "ignorePatterns": [
+    "dist/**",
+    "*.min.js",
+    ".agents/**",
+    "test-results/**",
+    "coverage/**",
+    "docs/palette-metrics.json",
+    "docs/palettes.svg"
+  ]
 }
