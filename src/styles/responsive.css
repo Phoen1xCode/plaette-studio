@@ -1,0 +1,748 @@
+@media (min-width: 1450px) {
+  .site-header {
+    max-width: 1430px;
+  }
+  .hero {
+    padding-top: 63px;
+    padding-bottom: 50px;
+  }
+  main {
+    max-width: 1334px;
+  }
+  .studio {
+    grid-template-columns: 275px minmax(0, 1fr);
+  }
+  .controls {
+    padding: 27px;
+  }
+  .palette-area {
+    padding: 27px 30px;
+  }
+  .swatch {
+    height: 158px;
+  }
+  .swatch-hex {
+    font-size: 10px;
+  }
+  .compact .swatch-hex {
+    font-size: 10px;
+  }
+  .engine-note {
+    margin-top: 40px;
+  }
+  .hero-art {
+    width: 365px;
+  }
+}
+@media (max-width: 1100px) {
+  .site-header {
+    padding: 0 32px;
+  }
+  .studio {
+    grid-template-columns: 225px minmax(0, 1fr);
+  }
+  .controls {
+    padding: 23px 18px;
+  }
+  .palette-area {
+    padding: 23px 20px;
+  }
+  .presets {
+    gap: 8px;
+  }
+  .details-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+  .curve-detail {
+    display: none;
+  }
+  .swatch {
+    padding: 9px 5px;
+    height: 135px;
+  }
+  .swatch-hex {
+    font-size: 10px;
+  }
+  .compact .swatch-hex {
+    font-size: 10px;
+  }
+  .preview-content {
+    gap: 18px;
+    padding: 22px;
+  }
+  .project-card,
+  .settings-card {
+    padding: 21px;
+  }
+  .hero-art {
+    width: 270px;
+  }
+  .preview-actions {
+    gap: 6px;
+  }
+  .preview-actions .t-button {
+    padding: 0 11px;
+  }
+}
+@media (max-width: 850px) {
+  main {
+    padding: 0 24px;
+  }
+  .site-header {
+    height: 74px;
+    padding: 0 24px;
+  }
+  .brand > span:last-child {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+  .site-header nav {
+    gap: 20px;
+    font-size: 11px;
+  }
+  .hero {
+    padding: 38px 0;
+  }
+  .hero-art {
+    width: 220px;
+    margin-right: 0;
+  }
+  .hero h1 {
+    font-size: 33px;
+  }
+  .hero p {
+    font-size: 12px;
+  }
+  .hero-kicker {
+    font-size: 10px;
+    letter-spacing: 1px;
+  }
+  .art-label {
+    font-size: 10px;
+  }
+  .art-footer {
+    font-size: 10px;
+  }
+  .studio {
+    grid-template-columns: 1fr;
+  }
+  .controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 30px;
+    padding: 24px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .panel-label {
+    grid-column: 1/-1;
+    margin-bottom: 20px;
+  }
+  .controls > .field-label:first-of-type {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .color-input-group {
+    grid-column: 1;
+    grid-row: 3;
+  }
+  .input-hint,
+  .input-error {
+    grid-column: 1;
+    grid-row: 4;
+  }
+  .preset-heading {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0 0 10px;
+  }
+  .presets {
+    grid-column: 2;
+    grid-row: 3/5;
+    grid-template-columns: repeat(6, 1fr);
+    row-gap: 6px;
+  }
+  .control-divider {
+    grid-column: 1/-1;
+    margin: 18px 0;
+  }
+  .controls > .field-label:not(:first-of-type) {
+    display: none;
+  }
+  .mode-control {
+    grid-column: 1;
+    grid-row: 6;
+  }
+  .neutral-control {
+    grid-column: 2;
+    grid-row: 6;
+    margin-top: 0;
+  }
+  .engine-note {
+    grid-column: 1/-1;
+    margin-top: 18px;
+  }
+  .palette-area {
+    padding: 25px;
+  }
+  .swatch {
+    height: 148px;
+  }
+  .swatch-hex {
+    font-size: 10px;
+  }
+  .compact .swatch-hex {
+    font-size: 10px;
+  }
+  .curve-detail {
+    display: block;
+  }
+  .details-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+  }
+  .preview-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    padding: 18px;
+  }
+  .project-card,
+  .settings-card {
+    padding: 17px;
+  }
+  .preview-description {
+    font-size: 10px;
+  }
+  .project-heading {
+    gap: 8px;
+  }
+  .project-heading h3 {
+    font-size: 14px;
+  }
+  .project-heading .eyebrow {
+    font-size: 10px;
+  }
+  .project-icon {
+    width: 33px;
+    height: 33px;
+  }
+  .project-heading > .t-tag {
+    font-size: 10px;
+    padding: 0 4px;
+  }
+  .preview-actions .t-button {
+    font-size: 10px;
+    padding: 0 8px;
+  }
+  .task-row .t-checkbox__label {
+    font-size: 10px;
+  }
+  .method-section {
+    gap: 40px;
+  }
+  .under-studio {
+    gap: 12px;
+    font-size: 12px;
+  }
+  .under-studio > a {
+    font-size: 12px;
+  }
+  .component-caption {
+    font-size: 10px;
+  }
+}
+@media (max-width: 640px) {
+  main {
+    padding: 0 16px;
+  }
+  .site-header {
+    height: 67px;
+    padding: 0 18px;
+  }
+  .brand {
+    gap: 9px;
+  }
+  .brand strong {
+    font-size: 21px;
+  }
+  .brand > span:last-child,
+  .brand-divider {
+    display: none;
+  }
+  .site-header nav {
+    gap: 18px;
+    font-size: 10px;
+  }
+  .site-header nav .source-link {
+    display: none;
+  }
+  .hero {
+    padding: 35px 3px 30px;
+    position: relative;
+    overflow: hidden;
+    gap: 0;
+    min-height: 200px;
+  }
+  .hero h1 {
+    font-size: 31px;
+    letter-spacing: -1.2px;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-kicker {
+    font-size: 10px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  .hero p {
+    font-size: 12px;
+    line-height: 1.85;
+    max-width: 235px;
+  }
+  .hero-art {
+    position: absolute;
+    right: -42px;
+    top: 58px;
+    width: 126px;
+    opacity: 0.26;
+    transform: rotate(-12deg);
+  }
+  .art-label,
+  .art-footer {
+    display: none;
+  }
+  .art-bars {
+    gap: 3px;
+  }
+  .art-bars i {
+    border-radius: 3px;
+  }
+  .mobile-break {
+    display: block;
+  }
+  .studio {
+    border-radius: 12px;
+  }
+  .controls {
+    padding: 19px 18px;
+    gap: 0 18px;
+  }
+  .panel-label {
+    margin-bottom: 19px;
+    font-size: 12px;
+  }
+  .field-label {
+    font-size: 11px;
+  }
+  .color-input-group {
+    height: 44px;
+    gap: 6px;
+    padding: 5px;
+  }
+  .color-picker-wrap {
+    height: 30px;
+    width: 30px;
+  }
+  #primary-color {
+    font-size: 16px;
+  }
+  .presets {
+    gap: 3px 4px;
+  }
+  .preset {
+    width: 21px;
+    height: 21px;
+    padding: 3px;
+  }
+  .preset-heading {
+    font-size: 12px;
+    margin-bottom: 9px;
+  }
+  .preset-heading span:last-child {
+    font-size: 11px;
+  }
+  .input-hint {
+    font-size: 12px;
+    margin-top: 6px;
+  }
+  .input-error {
+    font-size: 12px;
+  }
+  .neutral-control strong {
+    font-size: 12px;
+  }
+  .neutral-control div > span {
+    font-size: 11px;
+    margin-top: 4px;
+  }
+  .neutral-control {
+    gap: 5px;
+  }
+  .neutral-control .t-switch {
+    flex-shrink: 0;
+  }
+  .mode-control .t-radio-button {
+    font-size: 10px;
+  }
+  .mode-control .t-radio-button__label {
+    gap: 4px !important;
+  }
+  .engine-note {
+    font-size: 12px;
+    margin-top: 16px;
+  }
+  .palette-area {
+    padding: 21px 17px;
+  }
+  .palette-heading {
+    margin-bottom: 20px;
+  }
+  .palette-heading .eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.3px;
+  }
+  .palette-heading h2 {
+    font-size: 18px;
+    gap: 8px;
+  }
+  .palette-heading h2 > span {
+    font-size: 10px;
+  }
+  .export-trigger.t-button {
+    font-size: 10px;
+    height: 30px;
+    padding: 0 9px;
+  }
+  .scale-caption {
+    font-size: 10px;
+  }
+  .palette-strip {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 7px;
+  }
+  .swatch {
+    height: 104px;
+    padding: 9px 5px;
+    border-radius: 5px;
+  }
+  .swatch-hex {
+    font-size: 10px;
+  }
+  .swatch-level {
+    font-size: 10px;
+  }
+  .swatch.selected:after {
+    height: 2px;
+    bottom: -4px;
+  }
+  .palette-footnote {
+    font-size: 12px;
+    gap: 7px;
+    margin-top: 14px;
+    align-items: flex-start;
+    line-height: 1.5;
+  }
+  .palette-footnote > span:last-child {
+    font-size: 10px;
+    padding-top: 2px;
+  }
+  .neutral-palette {
+    margin-top: 23px;
+  }
+  .neutral-heading {
+    margin-bottom: 11px;
+  }
+  .neutral-heading h3 {
+    font-size: 11px;
+  }
+  .neutral-heading > span {
+    font-size: 11px;
+  }
+  .compact .swatch {
+    height: 52px;
+    padding: 7px 5px;
+  }
+  .compact .swatch-hex {
+    font-size: 10px;
+  }
+  .compact .swatch-level {
+    font-size: 10px;
+  }
+  .details-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+    margin-top: 24px;
+    padding-top: 18px;
+  }
+  .curve-detail {
+    display: none;
+  }
+  .details-grid .eyebrow {
+    font-size: 10px;
+    letter-spacing: 0;
+  }
+  .color-detail {
+    gap: 6px;
+  }
+  .detail-dot {
+    height: 25px;
+    width: 25px;
+  }
+  .color-detail strong {
+    font-size: 11px;
+  }
+  .color-detail dl {
+    gap: 5px;
+  }
+  .color-detail dt {
+    font-size: 10px;
+  }
+  .color-detail dd {
+    font-size: 10px;
+  }
+  .contrast-detail {
+    padding-left: 12px;
+  }
+  .contrast-items {
+    gap: 9px;
+    flex-wrap: wrap;
+    margin-top: 9px;
+  }
+  .contrast-item {
+    gap: 5px;
+  }
+  .aa-sample {
+    height: 24px;
+    width: 23px;
+  }
+  .contrast-item strong {
+    font-size: 10px;
+  }
+  .contrast-item small {
+    font-size: 10px;
+  }
+  .under-studio {
+    gap: 10px;
+    flex-wrap: wrap;
+    font-size: 12px;
+    padding-top: 12px;
+  }
+  .under-studio > span {
+    gap: 3px;
+  }
+  .under-studio > span svg {
+    width: 11px;
+  }
+  .under-studio > a {
+    margin-left: 0;
+    font-size: 12px;
+    width: 100%;
+    margin-top: 1px;
+  }
+  .preview-section {
+    margin-top: 33px;
+  }
+  .section-heading {
+    align-items: flex-end;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .section-heading .eyebrow {
+    font-size: 10px;
+    letter-spacing: 1.2px;
+  }
+  .section-heading h2 {
+    font-size: 19px;
+    margin-top: 8px;
+    letter-spacing: -0.4px;
+  }
+  .component-caption {
+    font-size: 10px;
+    max-width: 82px;
+    line-height: 1.7;
+    gap: 5px;
+  }
+  .component-caption .tiny-dot {
+    width: 4px;
+    height: 4px;
+  }
+  .preview-content {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 15px;
+  }
+  .preview-toolbar {
+    padding: 0 15px;
+    height: 35px;
+    font-size: 10px;
+  }
+  .project-card,
+  .settings-card {
+    padding: 21px;
+  }
+  .project-heading h3 {
+    font-size: 16px;
+  }
+  .project-heading .eyebrow {
+    font-size: 10px;
+  }
+  .project-icon {
+    width: 38px;
+    height: 38px;
+  }
+  .project-heading > .t-tag {
+    font-size: 10px;
+    padding: 0 6px;
+  }
+  .task-row .t-checkbox__label {
+    font-size: 11px;
+  }
+  .preview-actions .t-button {
+    font-size: 11px;
+    padding: 0 12px;
+  }
+  .preview-description {
+    font-size: 11px;
+  }
+  .method-section {
+    grid-template-columns: 1fr;
+    gap: 26px;
+    margin-top: 38px;
+    padding: 27px 4px 31px;
+  }
+  .method-intro h2 {
+    font-size: 24px;
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+  .method-intro h2 br {
+    display: none;
+  }
+  .method-intro p {
+    font-size: 12px;
+    margin-top: 8px;
+  }
+  .method-tag {
+    margin-top: 13px;
+  }
+  .method-notes {
+    gap: 21px;
+  }
+  .method-notes article {
+    gap: 15px;
+  }
+  .method-notes h3 {
+    font-size: 12px;
+  }
+  .method-notes p {
+    font-size: 12px;
+  }
+  .site-footer {
+    font-size: 12px;
+    gap: 8px;
+    flex-wrap: wrap;
+    padding: 20px 3px;
+  }
+  .site-footer > span:nth-child(2) {
+    order: 3;
+    width: 100%;
+    margin-top: 3px;
+    font-size: 12px;
+  }
+  .site-footer > a {
+    font-size: 12px;
+  }
+  .toast {
+    font-size: 11px;
+    bottom: 18px;
+  }
+  .t-dialog__body {
+    padding: 16px !important;
+  }
+  .export-description {
+    font-size: 12px;
+  }
+  .export-actions .t-button {
+    font-size: 12px;
+  }
+  /* Keep focusable text fields at 16px so iOS Safari does not zoom the page. */
+  .preview-field .t-input {
+    font-size: 16px;
+  }
+  .export-code {
+    font-size: 16px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *:before,
+  *:after {
+    transition: none !important;
+    animation: none !important;
+  }
+  .swatch:hover,
+  .swatch:focus-visible,
+  .preset:hover {
+    transform: none;
+  }
+}
+
+/* Preserve compact controls without letting TDesign's default wrapping split modes. */
+.mode-control.t-radio-group {
+  flex-wrap: nowrap;
+}
+.mode-control .t-radio-button {
+  min-width: 0;
+  padding: 0 8px;
+}
+.mode-control .t-radio-group__bg-block {
+  display: none;
+}
+.preview-frame .t-button--theme-default.t-is-disabled {
+  color: var(--preview-muted);
+  background: var(--preview-bg);
+  border-color: var(--preview-border);
+}
+@media (max-width: 640px) {
+  .controls {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .presets {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+  .preset {
+    width: 24px;
+    height: 24px;
+  }
+  .neutral-control {
+    flex-wrap: wrap;
+  }
+}
+.dialog-close {
+  border: 0;
+  background: transparent;
+  color: #536176;
+  width: 32px;
+  height: 32px;
+  font-size: 26px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+}
+.dialog-close:hover {
+  background: #eef2f8;
+}
+.t-radio-button:focus-visible {
+  outline: 3px solid #2674f7;
+  outline-offset: 3px;
+}
+.t-radio-button:has(input:focus-visible) {
+  outline: 3px solid #2674f7;
+  outline-offset: 3px;
+}

@@ -1,0 +1,67 @@
+.export-description {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #687281;
+  margin-bottom: 20px;
+}
+.export-code-label {
+  display: block;
+  font-family: monospace;
+  color: #606e80;
+  font-size: 11px;
+  margin-top: 20px;
+  margin-bottom: 8px;
+}
+.export-code {
+  width: 100%;
+  height: min(42vh, 370px);
+  resize: vertical;
+  background: #172030;
+  color: #dbe8ff;
+  border: 1px solid #172030;
+  border-radius: 8px;
+  padding: 17px;
+  font-size: 11px;
+  line-height: 1.7;
+  tab-size: 2;
+  white-space: pre;
+}
+.export-help {
+  font-size: 10px;
+  color: #687281;
+  line-height: 1.8;
+  margin-top: 9px;
+}
+.export-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 30px;
+  transform: translate(-50%, 12px);
+  opacity: 0;
+  transition:
+    opacity 0.18s,
+    transform 0.18s;
+  pointer-events: none;
+  z-index: 7000;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 18px;
+  max-width: calc(100vw - 32px);
+  width: max-content;
+  background: #182539;
+  color: #fff;
+  box-shadow: 0 6px 22px #172a4526;
+  border-radius: 9px;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.toast.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}

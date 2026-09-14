@@ -1,0 +1,310 @@
+.preview-section {
+  margin-top: 48px;
+}
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+.section-heading h2 {
+  font-size: 23px;
+  letter-spacing: -0.6px;
+  font-weight: 550;
+  margin-top: 9px;
+}
+.component-caption {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  color: #606e80;
+  font-size: 10px;
+}
+.preview-frame {
+  color: var(--preview-text);
+  background: var(--preview-bg);
+  border: 1px solid #dce2ea;
+  border-radius: 13px;
+  overflow: hidden;
+  transition:
+    background 0.18s,
+    color 0.18s;
+}
+.preview-toolbar {
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--preview-border);
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 0.4px;
+  color: var(--preview-muted);
+}
+.window-dots {
+  display: flex;
+  gap: 5px;
+}
+.window-dots i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--preview-muted);
+  opacity: 0.4;
+}
+.preview-mode {
+  font-size: 10px;
+  font-family: "Manrope Variable", sans-serif;
+  letter-spacing: 0.7px;
+}
+.preview-content {
+  display: grid;
+  grid-template-columns: 1.08fr 1fr;
+  gap: 24px;
+  padding: 27px;
+}
+.project-card,
+.settings-card {
+  background: var(--preview-surface);
+  border: 1px solid var(--preview-border);
+  border-radius: 10px;
+  padding: 25px;
+  min-width: 0;
+}
+.project-heading {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.project-icon {
+  height: 41px;
+  width: 41px;
+  background: var(--preview-subtle);
+  color: var(--preview-accent);
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+}
+.project-heading .eyebrow {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--preview-muted);
+}
+.project-heading h3 {
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 4px;
+  overflow-wrap: anywhere;
+}
+.project-heading > .t-tag {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: 10px;
+  height: 22px;
+}
+.preview-description {
+  color: var(--preview-muted);
+  font-size: 11px;
+  line-height: 1.6;
+  margin-top: 14px;
+}
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  margin: 23px 0 10px;
+  color: var(--preview-muted);
+}
+.progress-label strong {
+  font-weight: 500;
+  color: var(--preview-accent);
+}
+.project-card .t-radio-group {
+  margin-top: 24px;
+  background: var(--preview-bg);
+  height: 29px;
+  padding: 3px;
+  border-radius: 5px;
+}
+.project-card .t-radio-button {
+  height: 23px;
+  line-height: 23px;
+  font-size: 10px;
+  border-radius: 3px;
+}
+.project-card .t-radio-button.t-is-checked {
+  background: var(--preview-surface);
+  color: var(--preview-accent);
+}
+.task-list {
+  margin-top: 10px;
+  min-height: 117px;
+}
+.task-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 39px;
+  border-bottom: 1px solid var(--preview-border);
+  gap: 10px;
+}
+.task-row .t-checkbox__label {
+  font-size: 11px;
+  padding-left: 9px;
+  white-space: normal;
+}
+.task-row .t-checkbox {
+  height: auto;
+  line-height: 1.7;
+  padding: 7px 0;
+}
+.task-index {
+  font-family: monospace;
+  color: var(--preview-muted);
+  font-size: 10px;
+}
+.project-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 21px;
+  font-size: 10px;
+  color: var(--preview-muted);
+}
+.avatar-stack {
+  display: flex;
+  padding-right: 4px;
+}
+.avatar-stack span {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  background: var(--preview-subtle);
+  border: 2px solid var(--preview-surface);
+  color: var(--preview-accent);
+  border-radius: 50%;
+  font-size: 10px;
+  margin-right: -5px;
+}
+.avatar-stack span:nth-child(2) {
+  background: var(--preview-border);
+  color: var(--preview-text);
+}
+.settings-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+}
+.settings-card > .preview-description {
+  margin-top: 7px;
+}
+.preview-field {
+  font-size: 11px;
+  font-weight: 500;
+  display: block;
+  margin-top: 24px;
+}
+.preview-field > .t-input__wrap {
+  margin-top: 9px;
+}
+.preview-field .t-input {
+  height: 36px;
+  font-size: 12px;
+}
+.sync-setting {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 22px;
+  gap: 15px;
+}
+.sync-setting strong {
+  font-size: 11px;
+  font-weight: 500;
+  display: block;
+}
+.sync-setting small {
+  display: block;
+  font-size: 10px;
+  color: var(--preview-muted);
+  margin-top: 6px;
+}
+.preview-notice {
+  background: var(--preview-subtle);
+  color: var(--preview-accent);
+  border: 1px solid var(--preview-border);
+  border-radius: 6px;
+  padding: 11px 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+.preview-notice strong {
+  display: block;
+  font-size: 10px;
+  font-weight: 600;
+}
+.preview-notice span {
+  display: block;
+  font-size: 10px;
+  margin-top: 4px;
+}
+.preview-actions {
+  display: flex;
+  gap: 9px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+.preview-actions .t-button {
+  font-size: 11px;
+  height: 33px;
+}
+.preview-contrast {
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--preview-muted);
+  margin-top: 16px;
+  line-height: 1.7;
+}
+.all-done {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 0;
+  color: var(--preview-accent);
+}
+.preview-frame .t-switch:not(.t-is-checked) {
+  background-color: var(--preview-muted);
+}
+.preview-frame .t-switch__handle {
+  background: #fff;
+}
+.preview-frame
+  .t-button--variant-base.t-button--theme-primary:not(.t-is-disabled) {
+  color: var(--td-text-color-anti);
+}
+.preview-frame .t-checkbox__input {
+  border-color: var(--preview-muted);
+}
+/* TDesign's own focus glow uses --td-brand-color-focus, which we map to the
+   lightest shade; on a white surface it is invisible. Give the focused input
+   the same solid 2px accent ring the checkboxes already get. */
+.preview-frame .t-input.t-input--focused,
+.preview-frame .t-input:focus {
+  box-shadow: 0 0 0 2px var(--preview-accent);
+}
+/* Expand the switch hit area beyond its 32x20 visual box (WCAG 2.5.8). */
+.sync-setting .t-switch {
+  position: relative;
+}
+.sync-setting .t-switch::after {
+  content: "";
+  position: absolute;
+  inset: -6px -10px;
+}
