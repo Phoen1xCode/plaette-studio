@@ -22,7 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-
-# Local verification output
-test-results/
-coverage/
+!.vscode/
+!.vscode/settings.json
+!.vscode/extensions.json
