@@ -6,6 +6,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
+  staged: {
+    "*": "vp check --fix",
+  },
   fmt: {
     printWidth: 80,
     ignorePatterns: [".agents/**", ".claude/**"],
