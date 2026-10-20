@@ -35,9 +35,9 @@ export default defineConfig({
     ],
   },
   test: {
-    include: ['src/**/*.test.ts'],
+    include: ["src/**/*.test.ts"],
     coverage: {
-      reporter: ['text', 'html'],
+      reporter: ["text", "html"],
     },
   },
   resolve: {
