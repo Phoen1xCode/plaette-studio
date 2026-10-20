@@ -125,12 +125,12 @@
   font-weight: 500;
   color: var(--preview-accent);
 }
-.preview-progress-track {
+.preview-progress [data-slot="progress-track"] {
   height: 5px;
   border-radius: 99px;
   background: var(--preview-border);
 }
-.preview-progress-indicator {
+.preview-progress [data-slot="progress-indicator"] {
   border-radius: 99px;
   background: var(--preview-accent);
 }

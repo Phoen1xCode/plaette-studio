@@ -4,11 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import {
-  Progress,
-  ProgressIndicator,
-  ProgressTrack,
-} from "@/components/ui/progress";
+import { Progress } from "@/components/ui/progress";
 import { Switch } from "@/components/ui/switch";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { contrastRatio, type ColorMode, type ColorTheme } from "@/lib/palette";
@@ -105,13 +101,10 @@ export default function ComponentPreview({
               <strong>{completed} / 3 done</strong>
             </div>
             <Progress
+              className="preview-progress"
               value={Math.round((completed / 3) * 100)}
               aria-label="Project progress"
-            >
-              <ProgressTrack className="preview-progress-track">
-                <ProgressIndicator className="preview-progress-indicator" />
-              </ProgressTrack>
-            </Progress>
+            />
             <ToggleGroup
               className="task-filter"
               aria-label="Task filter"
