@@ -1,5 +1,9 @@
 # Palette Studio
 
+<p align="center">
+  <img src="./public/hero.gif" width="100%" alt="Palette Studio turns one key color into a ten-step scale with linked neutrals.">
+</p>
+
 Enter one key color, get a complete ten-step scale from light to dark. Palette Studio implements the [TDesign x Tencent Open Source 2026](https://tdesign.gtimg.com/docs/summer-of-code-2026/tdesign-task.html) challenge, extended with a dark mode scale and harmonized neutrals.
 
 The UI supports color input with a picker, preset swatches, one-click HEX copy, contrast inspection, and CSS / JSON export, with a live component preview themed by the generated palette. All color math runs locally in the browser.

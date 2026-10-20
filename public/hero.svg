@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Palette Studio</title>
+  <desc id="desc">Tencent Blue #0052D9 becomes ten shades from light to dark, with linked neutral colors. These are actual outputs from Palette Studio's color engine.</desc>
+
+  <rect width="1200" height="560" rx="24" fill="#F6F7F9"/>
+
+  <g font-family="JetBrains Mono, Menlo, ui-monospace, monospace" fill="#1D2635">
+    <!-- The three bars reproduce the product's wordmark. -->
+    <g id="brand-mark" transform="translate(60 39) rotate(-10 21 22)">
+      <rect x="0" y="17" width="10" height="24" rx="4" fill="#75A4F3"/>
+      <rect x="15" y="3" width="10" height="38" rx="4" fill="#357BEC"/>
+      <rect x="30" y="10" width="10" height="31" rx="4" fill="#0052D9"/>
+    </g>
+    <text x="122" y="68" font-size="18" font-weight="500" letter-spacing="2.2" fill="#687281">BUILT ON PERCEPTION</text>
+
+    <text x="56" y="184" font-size="72" font-weight="650" letter-spacing="-3.4">Palette Studio</text>
+
+    <g id="source-color">
+      <text x="60" y="271" font-size="18" letter-spacing="1.4" fill="#687281">KEY COLOR</text>
+      <rect x="60" y="298" width="166" height="166" rx="14" fill="#0052D9"/>
+      <path d="M128 351h30m-15-15v30" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+      <text x="143" y="431" text-anchor="middle" font-size="26" font-weight="500" letter-spacing="-0.7" fill="#FFFFFF">#0052D9</text>
+    </g>
+
+    <g id="scale-structure">
+      <text x="322" y="271" font-size="18" letter-spacing="1.4" fill="#687281">10 SHADES</text>
+      <text x="1138" y="271" text-anchor="end" font-size="18" fill="#687281">LIGHT TO DARK</text>
+      <path d="M251 381h42m-8-8 8 8-8 8" stroke="#9DA4AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <!-- Quiet slots keep the source-to-scale relationship visible at the loop boundary. -->
+      <g fill="#E5E8EE">
+        <rect x="322" y="329" width="73" height="104" rx="10"/>
+        <rect x="404" y="317" width="73" height="128" rx="10"/>
+        <rect x="486" y="306" width="73" height="150" rx="10"/>
+        <rect x="568" y="298" width="73" height="166" rx="10"/>
+        <rect x="650" y="294" width="73" height="174" rx="10"/>
+        <rect x="732" y="294" width="73" height="174" rx="10"/>
+        <rect x="814" y="298" width="73" height="166" rx="10"/>
+        <rect x="896" y="306" width="73" height="150" rx="10"/>
+        <rect x="978" y="317" width="73" height="128" rx="10"/>
+        <rect x="1060" y="329" width="73" height="104" rx="10"/>
+      </g>
+      <g font-size="18" fill="#687281" text-anchor="middle">
+        <text x="358.5" y="493">01</text>
+        <text x="440.5" y="493">02</text>
+        <text x="522.5" y="493">03</text>
+        <text x="604.5" y="493">04</text>
+        <text x="686.5" y="493">05</text>
+        <text x="768.5" y="493">06</text>
+        <text x="850.5" y="493">07</text>
+        <text x="932.5" y="493">08</text>
+        <text x="1014.5" y="493">09</text>
+        <text x="1096.5" y="493">10</text>
+      </g>
+    </g>
+
+    <!-- Actual generateTheme("#0052D9").light output, in ascending shade order. -->
+    <g id="brand-scale">
+      <rect id="shade-01" x="322" y="329" width="73" height="104" rx="10" fill="#F2F7FF"/>
+      <rect id="shade-02" x="404" y="317" width="73" height="128" rx="10" fill="#C7DCFF"/>
+      <rect id="shade-03" x="486" y="306" width="73" height="150" rx="10" fill="#9DC0FF"/>
+      <rect id="shade-04" x="568" y="298" width="73" height="166" rx="10" fill="#72A4FF"/>
+      <rect id="shade-05" x="650" y="294" width="73" height="174" rx="10" fill="#4586FF"/>
+      <rect id="shade-06" x="732" y="294" width="73" height="174" rx="10" fill="#1C66ED"/>
+      <rect id="shade-07" x="814" y="298" width="73" height="166" rx="10" fill="#004AC6"/>
+      <rect id="shade-08" x="896" y="306" width="73" height="150" rx="10" fill="#003696"/>
+      <rect id="shade-09" x="978" y="317" width="73" height="128" rx="10" fill="#002368"/>
+      <rect id="shade-10" x="1060" y="329" width="73" height="104" rx="10" fill="#00113D"/>
+    </g>
+
+    <path d="M322 526h811" stroke="#E5E8EE" stroke-width="14" stroke-linecap="round"/>
+    <!-- Actual generateTheme("#0052D9").neutralLight output. -->
+    <g id="neutral-scale">
+      <rect x="322" y="519" width="73" height="14" rx="4" fill="#F6F7F9" stroke="#D7DBE1"/>
+      <rect x="404" y="519" width="73" height="14" rx="4" fill="#D7DBE1"/>
+      <rect x="486" y="519" width="73" height="14" rx="4" fill="#BABFC8"/>
+      <rect x="568" y="519" width="73" height="14" rx="4" fill="#9DA4AF"/>
+      <rect x="650" y="519" width="73" height="14" rx="4" fill="#838A96"/>
+      <rect x="732" y="519" width="73" height="14" rx="4" fill="#69707D"/>
+      <rect x="814" y="519" width="73" height="14" rx="4" fill="#515864"/>
+      <rect x="896" y="519" width="73" height="14" rx="4" fill="#3A414C"/>
+      <rect x="978" y="519" width="73" height="14" rx="4" fill="#252B34"/>
+      <rect x="1060" y="519" width="73" height="14" rx="4" fill="#12161D"/>
+    </g>
+  </g>
+</svg>
