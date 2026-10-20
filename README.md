@@ -1,27 +1,49 @@
-# 色谱 · Palette Studio
+# Palette Studio
 
-输入一个主色，生成由浅到深的十级色阶。本项目实现 [TDesign 犀牛鸟 2026 Task 1「当一次“调色大师”」](https://tdesign.gtimg.com/docs/summer-of-code-2026/tdesign-task.html#task-one)，包含深色模式与关联中性色两项扩展。
+Enter one key color, get a complete ten-step scale from light to dark. Palette Studio implements the [TDesign x Tencent Open Source 2026](https://tdesign.gtimg.com/docs/summer-of-code-2026/tdesign-task.html) challenge, extended with a dark mode scale and harmonized neutrals.
 
-界面支持颜色输入与拾色、预设切换、色值复制、对比度查看，以及 CSS / JSON 导出；通过 TDesign 组件预览配色效果。技术栈为 React 19、TypeScript 6、Vite 8 和 Culori，色彩计算全部在浏览器本地完成，无需后端或环境变量。
+The UI supports color input with a picker, preset swatches, one-click HEX copy, contrast inspection, and CSS / JSON export, with a live component preview themed by the generated palette. All color math runs locally in the browser.
 
-![Palette Studio 桌面浅色界面](docs/screenshots/desktop-light.png)
+## Tech Stack
 
-## 本地运行
+- **React 19** + **TypeScript 6**
+- **Vite+ 1.3** (`vp`): unified toolchain wrapping Vite, Rolldown, Vitest, Oxlint and Oxfmt
+- **Tailwind CSS 4** + **shadcn/ui** for the component preview
+- **Culori** for color parsing and OKLCH / OKLab computation
+- **React Compiler** via `@rolldown/plugin-babel`
 
-需要 Node.js 22.12+ 和 Bun 1.3.14+。在项目根目录执行：
+## Getting Started
+
+Prerequisite: the global [`vp`](https://viteplus.dev/guide/) CLI, which manages Node.js and the package manager for you (no separate Node.js or Bun install needed):
 
 ```bash
-bun install --frozen-lockfile
-bun run dev
+curl -fsSL https://vite.plus | bash
 ```
 
-打开终端显示的地址，默认是 `http://localhost:5173`。输入主色或选择预设，切换浅色 / 深色，点击色块复制 HEX，通过「导出色阶」下载 CSS 或 JSON。
+Then, from the project root:
 
-预览中的项目卡片用于体验组件状态，数据仅保存在内存中，刷新后重置。
+```bash
+vp install   # resolve the toolchain and install dependencies
+vp dev       # start the dev server with HMR
+```
 
-## 核心 API
+Open the printed URL (`http://localhost:5173` by default). Type a key color or pick a preset, toggle light / dark, click a swatch to copy its HEX, and use "Export scale" to download CSS or JSON.
 
-[`src/lib/palette.ts`](src/lib/palette.ts) 是独立 TypeScript 模块，只依赖 Culori，不依赖 React 或 DOM。以下示例可在项目根目录的 TypeScript 脚本中运行：
+## Commands
+
+| Command        | What it does                                         |
+| -------------- | ---------------------------------------------------- |
+| `vp dev`       | Start the dev server with HMR                        |
+| `vp run build` | Type-check (`tsc -b`) and build to `dist/`           |
+| `vp preview`   | Preview the production build                         |
+| `vp lint`      | Lint with Oxlint (type-aware, type-checking enabled) |
+| `vp fmt`       | Format with Oxfmt (`vp fmt --check` to verify only)  |
+| `vp test`      | Run the test suite once with Vitest                  |
+| `vp check`     | Format + lint + type-check in one pass               |
+
+## Core API
+
+[`src/lib/palette.ts`](src/lib/palette.ts) is a standalone TypeScript module that depends only on Culori, not on React or the DOM:
 
 ```ts
 import { generatePalette, generateTheme } from "./src/lib/palette";
@@ -37,36 +59,26 @@ const css = exportTheme(theme, "css");
 const json = exportTheme(theme, "json");
 ```
 
-输入与输出约定：
+Input and output contract:
 
-- 支持 HEX、RGB、HSL、OKLCH、CSS 命名色等不透明颜色；广色域输入先映射到 sRGB。非法输入、透明色及依赖上下文的颜色抛出 `ColorInputError`。
-- 每套色阶返回只读十元素元组，格式为大写 `#RRGGBB`，浅色与深色模式均按 1 最浅、10 最深排列。
-- 主色决定色相和彩度，不保证精确出现在某一级；归一化后的原色保存在 `theme.source`。
-- CSS / JSON 均导出四套色阶。CSS 包含 `:root` 与 `[data-theme="dark"]` 变量，应在 TDesign 样式之后加载；语义变量覆盖本项目预览，未包含完整的成功、警告、错误等状态色主题。
+- Accepts opaque HEX, RGB, HSL, OKLCH and CSS named colors; wide-gamut input is mapped into sRGB first. Invalid input, transparent colors and context-dependent colors throw `ColorInputError`.
+- Each scale is a readonly ten-element tuple of uppercase `#RRGGBB` values, ordered 1 = lightest to 10 = darkest in both light and dark modes.
+- The key color sets hue and chroma but is not guaranteed to appear as an exact step; the normalized source color is kept in `theme.source`.
+- CSS and JSON exports both contain all four scales. The CSS output provides `:root` and `[data-theme="dark"]` blocks with `--brand-*`, `--neutral-*` and shadcn/ui semantic variables; load it after your base styles. Semantic variables cover this project's preview surface and do not include full success / warning / error status themes.
 
-## 源码阅读入口
+## Reading the Source
 
-建议先看色阶引擎与算法说明，再看主题映射和界面：
+Start with the scale engine, then the theme mapping, then the UI:
 
-| 文件                                                 | 职责                                         |
-| ---------------------------------------------------- | -------------------------------------------- |
-| [`src/lib/palette.ts`](src/lib/palette.ts)           | 颜色解析、色域映射、十级色阶生成与对比度计算 |
-| [`src/lib/theme.ts`](src/lib/theme.ts)               | 语义颜色、TDesign 变量与 CSS / JSON 导出     |
-| [`src/App.tsx`](src/App.tsx)                         | 工作台状态、输入与模式切换                   |
-| [`src/components/`](src/components/)                 | 色阶、详情、组件预览与导出弹窗               |
-| [`src/lib/palette.test.ts`](src/lib/palette.test.ts) | 算法边界、对比度与导出测试                   |
+| File                                                 | Responsibility                                                          |
+| ---------------------------------------------------- | ----------------------------------------------------------------------- |
+| [`src/lib/palette.ts`](src/lib/palette.ts)           | Color parsing, gamut mapping, ten-step scale and contrast math          |
+| [`src/lib/theme.ts`](src/lib/theme.ts)               | Semantic tokens, shadcn/ui variables and CSS / JSON export              |
+| [`src/App.tsx`](src/App.tsx)                         | Workspace state, input handling and mode switching                      |
+| [`src/components/`](src/components/)                 | Scale display, details, component preview and export dialog             |
+| [`src/styles/`](src/styles/)                         | Layered stylesheets: base, shell, studio, preview, overlays, responsive |
+| [`src/lib/palette.test.ts`](src/lib/palette.test.ts) | Algorithm boundary, contrast and export tests (131 cases)               |
 
-[算法说明](docs/algorithm.md) 解释 OKLCH 路径、OKLab 等弧长采样和极端颜色取舍；[验证说明](docs/verification.md) 列出测试范围、浏览器复跑方法及界面截图。
+## Deployment
 
-## 检查与构建
-
-运行完整检查，再预览生产构建：
-
-```bash
-bun run check
-bun run preview
-```
-
-`check` 依次执行 Oxlint、Oxfmt、Vitest、TypeScript 检查和 Vite 构建，产物位于 `dist/`。`preview` 默认地址为 `http://localhost:4173`。只运行算法与导出测试时使用 `bun run test`。
-
-项目可作为静态站点部署。[`vercel.json`](vercel.json) 已配置安装命令 `bun install --frozen-lockfile`、构建命令 `bun run build` 和输出目录 `dist`。
+The project builds to a fully static site in `dist/` and can be deployed to any static host (Vercel, Netlify, GitHub Pages) with build command `vp run build` and output directory `dist`.
