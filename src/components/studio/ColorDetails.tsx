@@ -5,13 +5,12 @@ import {
   type Palette,
 } from "@/lib/palette";
 
-export default function ColorDetails({
-  colors,
-  selected,
-}: {
+interface ColorDetailsProps {
   colors: Palette;
   selected: number;
-}) {
+}
+
+export default function ColorDetails({ colors, selected }: ColorDetailsProps) {
   const color = colors[selected]!;
   const coords = colorCoordinates(color);
   const lightContrast = contrastRatio("#FFFFFF", color);
@@ -32,31 +31,31 @@ export default function ColorDetails({
         <span className="detail-dot" style={{ backgroundColor: color }} />
         <div>
           <span className="eyebrow">
-            当前色阶 · {String(selected + 1).padStart(2, "0")}
+            Current shade · {String(selected + 1).padStart(2, "0")}
           </span>
           <strong className="mono">{color}</strong>
         </div>
         <dl>
           <div>
-            <dt>L 明度</dt>
+            <dt>L Lightness</dt>
             <dd>{(coords.l * 100).toFixed(1)}%</dd>
           </div>
           <div>
-            <dt>C 彩度</dt>
+            <dt>C Chroma</dt>
             <dd>{coords.c.toFixed(3)}</dd>
           </div>
           <div>
-            <dt>H 色相</dt>
-            <dd>{coords.c < 0.0001 ? "无色相" : `${coords.h.toFixed(1)}°`}</dd>
+            <dt>H Hue</dt>
+            <dd>{coords.c < 0.0001 ? "No hue" : `${coords.h.toFixed(1)}°`}</dd>
           </div>
         </dl>
       </div>
       <div className="contrast-detail">
-        <span className="eyebrow">文字对比度 · WCAG AA ≥ 4.5</span>
+        <span className="eyebrow">Text contrast · WCAG AA ≥ 4.5</span>
         <div className="contrast-items">
           {[
-            { text: "#FFFFFF", label: "白字", value: lightContrast },
-            { text: "#000000", label: "黑字", value: darkContrast },
+            { text: "#FFFFFF", label: "White text", value: lightContrast },
+            { text: "#000000", label: "Black text", value: darkContrast },
           ].map((item) => (
             <div className="contrast-item" key={item.label}>
               <span
@@ -69,7 +68,7 @@ export default function ColorDetails({
               <div>
                 <strong>{item.value.toFixed(2)}:1</strong>
                 <small>
-                  {item.label} · {item.value >= 4.5 ? "AA 通过" : "未达 AA"}
+                  {item.label} · {item.value >= 4.5 ? "AA pass" : "Below AA"}
                 </small>
               </div>
             </div>
@@ -78,13 +77,15 @@ export default function ColorDetails({
       </div>
       <div className="curve-detail">
         <span className="eyebrow">
-          感知明度曲线{" "}
-          <span className="curve-ratio">步距比 {smoothness.toFixed(2)}</span>
+          Perceptual lightness curve{" "}
+          <span className="curve-ratio">
+            Step ratio {smoothness.toFixed(2)}
+          </span>
         </span>
         <svg
           viewBox="0 0 294 86"
           role="img"
-          aria-label="十级色阶明度从左到右递减"
+          aria-label="Lightness decreases from left to right across the ten shades"
         >
           <path
             d="M12 78H282M12 45H282M12 12H282"
