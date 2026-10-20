@@ -1,12 +1,18 @@
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
   max-width: 1344px;
   padding: 0 48px;
   margin: auto;
-  height: 88px;
+  height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--line);
+  background: rgba(246, 247, 249, 0.82);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
 }
 .brand {
   display: flex;
@@ -19,7 +25,7 @@
   font-weight: 650;
 }
 .brand > span:last-child {
-  font-family: "Manrope Variable", sans-serif;
+  font-family: inherit;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1.7px;
@@ -70,6 +76,10 @@
   align-items: center;
   gap: 7px;
   position: relative;
+  transition: color 160ms ease;
+}
+.site-header nav a:active {
+  transform: translateY(1px);
 }
 .site-header nav .active {
   color: #1a2535;
@@ -78,10 +88,11 @@
 .site-header nav .active:after {
   content: "";
   position: absolute;
-  bottom: -1px;
+  bottom: calc(50% - 13px);
   left: 0;
   right: 0;
   height: 2px;
+  border-radius: 1px;
   background: var(--blue);
 }
 .site-header nav a:hover {
@@ -89,7 +100,7 @@
 }
 .site-header nav .source-link {
   margin-left: 8px;
-  font-family: "Manrope Variable", sans-serif;
+  font-family: inherit;
   color: #263244;
 }
 main {
@@ -105,7 +116,7 @@ main {
   gap: 50px;
 }
 .hero-kicker {
-  font-family: "Manrope Variable", sans-serif;
+  font-family: inherit;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1.8px;
@@ -144,7 +155,7 @@ main {
   transform: rotate(-4deg);
 }
 .art-label {
-  font-family: "Manrope Variable", sans-serif;
+  font-family: inherit;
   font-size: 10px;
   letter-spacing: 1.35px;
   color: #606e80;
@@ -190,7 +201,7 @@ main {
 }
 .method-intro p {
   font-size: 12px;
-  color: var(--muted);
+  color: var(--muted-text);
   line-height: 1.7;
   margin-top: 10px;
 }
@@ -214,7 +225,7 @@ main {
   gap: 20px;
 }
 .method-notes article > span {
-  font-family: "Manrope Variable", sans-serif;
+  font-family: inherit;
   font-size: 10px;
   color: #606e80;
   padding-top: 4px;
@@ -233,7 +244,7 @@ main {
 .site-footer {
   border-top: 1px solid var(--line);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 23px 0 27px;
   gap: 20px;

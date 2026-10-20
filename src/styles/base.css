@@ -1,32 +1,22 @@
 :root {
-  font-family:
-    "DM Sans Variable",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    "PingFang SC",
-    "Microsoft YaHei",
-    sans-serif;
+  font-family: "JetBrains Mono Variable", ui-monospace, monospace;
   color: #1d2635;
   background: #f6f7f9;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   --ink: #1d2635;
-  --muted: #687281;
+  /* Distinct from shadcn's `--muted` surface token in index.css. */
+  --muted-text: #687281;
   --line: #e5e8ee;
   --blue: #0052d9;
-  --td-brand-color: #0052d9;
-  --td-brand-color-hover: #0045b8;
-  --td-brand-color-active: #003b9e;
-  --td-radius-default: 7px;
 }
 * {
   box-sizing: border-box;
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 30px;
+  scroll-padding-top: 78px;
 }
 body {
   margin: 0;
@@ -50,9 +40,13 @@ a {
   color: inherit;
   text-decoration: none;
 }
-button:focus-visible,
+/* Button, switch and checkbox draw their own focus ring; other controls
+   (swatches, presets, toggle-group items, links, text fields) keep this one. */
+button:not([data-slot="button"]):not([data-slot="switch"]):not(
+    [data-slot="checkbox"]
+  ):focus-visible,
 a:focus-visible,
-input:focus-visible,
+input:not([data-slot]):focus-visible,
 textarea:focus-visible {
   outline: 3px solid #2674f7;
   outline-offset: 4px;
@@ -74,11 +68,11 @@ button {
 .swatch-hex,
 .export-code,
 code {
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-family: inherit;
 }
 .eyebrow {
   display: block;
-  color: var(--muted);
+  color: var(--muted-text);
   font-size: 10px;
   letter-spacing: 1.5px;
   font-weight: 600;

@@ -1,12 +1,57 @@
+.export-dialog {
+  width: min(720px, calc(100vw - 32px));
+  max-width: none;
+  gap: 0;
+  border-radius: 12px;
+  padding: 26px;
+  font-size: 13px;
+  line-height: 1.6;
+  overscroll-behavior: contain;
+}
+.export-title {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+}
 .export-description {
   font-size: 13px;
   line-height: 1.8;
   color: #687281;
+  margin-top: 14px;
   margin-bottom: 20px;
+}
+.export-format[data-slot="toggle-group"] {
+  display: flex;
+  width: fit-content;
+  gap: 0;
+  background: #edf0f4;
+  padding: 3px;
+  border-radius: 8px;
+}
+.export-format [data-slot="toggle-group-item"] {
+  display: flex;
+  align-items: center;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  box-shadow: none;
+  font-size: 12px;
+  color: #5d6b7e;
+}
+.export-format [data-slot="toggle-group-item"]:hover {
+  background: transparent;
+  color: #243047;
+}
+.export-format [data-slot="toggle-group-item"][aria-pressed="true"],
+.export-format [data-slot="toggle-group-item"][aria-pressed="true"]:hover {
+  background: white;
+  color: #243047;
+  box-shadow: 0 1px 4px #18284715;
 }
 .export-code-label {
   display: block;
-  font-family: monospace;
+  font-family: inherit;
   color: #606e80;
   font-size: 11px;
   margin-top: 20px;
@@ -33,40 +78,12 @@
   line-height: 1.8;
   margin-top: 9px;
 }
-/* Keep dialog scroll from chaining to the page behind it. */
-.t-dialog {
-  overscroll-behavior: contain;
-}
 .export-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
+  margin-top: 20px;
 }
-.toast {
-  position: fixed;
-  left: 50%;
-  bottom: calc(30px + env(safe-area-inset-bottom));
-  transform: translate(-50%, 12px);
-  opacity: 0;
-  transition:
-    opacity 0.18s,
-    transform 0.18s;
-  pointer-events: none;
-  z-index: 7000;
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 12px 18px;
-  max-width: calc(100vw - 32px);
-  width: max-content;
-  background: #182539;
-  color: #fff;
-  box-shadow: 0 6px 22px #172a4526;
-  border-radius: 9px;
+.export-button {
+  height: 34px;
   font-size: 12px;
-  line-height: 1.6;
-}
-.toast.visible {
-  opacity: 1;
-  transform: translate(-50%, 0);
+  gap: 7px;
+  border-radius: 7px;
 }

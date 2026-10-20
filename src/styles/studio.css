@@ -23,7 +23,7 @@
   margin-bottom: 30px;
 }
 .panel-label > span {
-  font-family: monospace;
+  font-family: inherit;
   font-size: 10px;
   color: #606e80;
   margin-left: auto;
@@ -39,7 +39,8 @@
   align-items: center;
   background: white;
   border: 1px solid #ced5df;
-  border-radius: 8px;
+  /* Concentric with the 5px picker swatch on 6px padding. */
+  border-radius: 11px;
   padding: 6px;
   gap: 10px;
   height: 49px;
@@ -87,7 +88,7 @@
   width: 100%;
   min-width: 0;
   padding: 0;
-  font-family: "SFMono-Regular", Consolas, monospace;
+  font-family: inherit;
   font-size: 13px;
   color: #243047;
   font-weight: 500;
@@ -143,6 +144,9 @@
 .preset:hover {
   transform: translateY(-2px);
 }
+.preset {
+  transition: transform 0.15s ease-out;
+}
 .preset > i {
   position: absolute;
   right: 0;
@@ -158,29 +162,38 @@
   background: var(--line);
   margin: 27px 0 22px;
 }
-.mode-control.t-radio-group {
+/* Mode switch: shadcn ToggleGroup (roving focus is built in). */
+.mode-control[data-slot="toggle-group"] {
   display: flex;
   width: 100%;
   height: 36px;
+  gap: 0;
   background: #edf0f4;
   padding: 3px;
-  border-radius: 7px;
+  border-radius: 8px;
 }
-.mode-control .t-radio-button {
+.mode-control [data-slot="toggle-group-item"] {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
-  height: 29px;
-  font-size: 12px;
-}
-.mode-control .t-radio-button .t-radio-button__label {
-  display: flex;
-  align-items: center;
   gap: 7px;
+  min-width: 0;
+  height: 29px;
+  padding: 0 8px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  box-shadow: none;
+  font-size: 12px;
+  color: #5d6b7e;
 }
-.mode-control .t-radio-button.t-is-checked {
+.mode-control [data-slot="toggle-group-item"]:hover {
+  background: transparent;
+  color: #243047;
+}
+.mode-control [data-slot="toggle-group-item"][aria-pressed="true"],
+.mode-control [data-slot="toggle-group-item"][aria-pressed="true"]:hover {
   background: white;
   color: #243047;
   box-shadow: 0 1px 4px #18284715;
@@ -202,14 +215,6 @@
   font-size: 11px;
   color: #606e80;
   margin-top: 6px;
-}
-.neutral-control .t-switch {
-  position: relative;
-}
-.neutral-control .t-switch::after {
-  content: "";
-  position: absolute;
-  inset: -6px -10px;
 }
 .engine-note {
   display: flex;
@@ -249,7 +254,7 @@
   letter-spacing: -0.5px;
 }
 .palette-heading h2 > span {
-  font-family: "Manrope Variable", sans-serif;
+  font-family: inherit;
   font-size: 10px;
   letter-spacing: 0.6px;
   color: #606e80;
@@ -259,18 +264,14 @@
   padding: 3px 5px;
   font-weight: 500;
 }
-.export-trigger.t-button {
+.export-trigger {
   font-size: 11px;
   height: 32px;
+  gap: 7px;
   border-color: #d8dfe9;
+  border-radius: 7px;
   background: transparent;
   color: inherit;
-}
-.t-button__text {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
 }
 .scale-caption {
   display: flex;
@@ -331,8 +332,34 @@
   position: absolute;
   top: 43%;
   align-self: center;
+  display: flex;
   opacity: 0;
   transition: opacity 0.15s;
+}
+/* Copy -> check cross-fade: both icons stay mounted, one overlays the other. */
+.swatch-copy svg {
+  transition:
+    opacity 0.3s cubic-bezier(0.2, 0, 0, 1),
+    scale 0.3s cubic-bezier(0.2, 0, 0, 1),
+    filter 0.3s cubic-bezier(0.2, 0, 0, 1);
+}
+.swatch-copy .icon-check {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  opacity: 0;
+  scale: 0.25;
+  filter: blur(4px);
+}
+.swatch-copy.copied .icon-check {
+  opacity: 1;
+  scale: 1;
+  filter: blur(0px);
+}
+.swatch-copy.copied .icon-copy {
+  opacity: 0;
+  scale: 0.25;
+  filter: blur(4px);
 }
 .swatch:hover .swatch-copy,
 .swatch:focus-visible .swatch-copy {
@@ -353,7 +380,7 @@
   gap: 5px;
 }
 .palette-footnote > span:last-child {
-  font-family: "Manrope Variable", sans-serif;
+  font-family: inherit;
   font-size: 10px;
   letter-spacing: 0.8px;
   white-space: nowrap;
@@ -443,7 +470,7 @@
   white-space: nowrap;
 }
 .color-detail dd {
-  font-family: "Manrope Variable", sans-serif;
+  font-family: inherit;
   font-size: 10px;
   margin: 0;
   font-weight: 600;
@@ -473,7 +500,7 @@
   font-size: 11px;
 }
 .contrast-item strong {
-  font-family: "Manrope Variable", sans-serif;
+  font-family: inherit;
   font-size: 10px;
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
@@ -541,6 +568,7 @@
 }
 .palette-area[data-mode="dark"] .export-trigger:hover {
   background: #293244;
+  color: inherit;
 }
 .palette-area[data-mode="dark"] .curve-detail {
   color: #91b4e5;

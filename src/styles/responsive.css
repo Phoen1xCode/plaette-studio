@@ -81,16 +81,19 @@
   .preview-actions {
     gap: 6px;
   }
-  .preview-actions .t-button {
+  .preview-actions .preview-button {
     padding: 0 11px;
   }
 }
 @media (max-width: 850px) {
+  html {
+    scroll-padding-top: 72px;
+  }
   main {
     padding: 0 24px;
   }
   .site-header {
-    height: 74px;
+    height: 60px;
     padding: 0 24px;
   }
   .brand > span:last-child {
@@ -227,15 +230,15 @@
     width: 33px;
     height: 33px;
   }
-  .project-heading > .t-tag {
+  .project-heading .preview-badge {
     font-size: 10px;
     padding: 0 4px;
   }
-  .preview-actions .t-button {
+  .preview-actions .preview-button {
     font-size: 10px;
     padding: 0 8px;
   }
-  .task-row .t-checkbox__label {
+  .task-row .task-label {
     font-size: 10px;
   }
   .method-section {
@@ -253,11 +256,14 @@
   }
 }
 @media (max-width: 640px) {
+  html {
+    scroll-padding-top: 66px;
+  }
   main {
     padding: 0 16px;
   }
   .site-header {
-    height: 67px;
+    height: 56px;
     padding: 0 18px;
   }
   .brand {
@@ -325,6 +331,7 @@
     border-radius: 12px;
   }
   .controls {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     padding: 19px 18px;
     gap: 0 18px;
   }
@@ -339,6 +346,7 @@
     height: 44px;
     gap: 6px;
     padding: 5px;
+    border-radius: 10px;
   }
   .color-picker-wrap {
     height: 30px;
@@ -348,11 +356,12 @@
     font-size: 16px;
   }
   .presets {
-    gap: 3px 4px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
   }
   .preset {
-    width: 21px;
-    height: 21px;
+    width: 24px;
+    height: 24px;
     padding: 3px;
   }
   .preset-heading {
@@ -369,6 +378,10 @@
   .input-error {
     font-size: 12px;
   }
+  .neutral-control {
+    flex-wrap: wrap;
+    gap: 5px;
+  }
   .neutral-control strong {
     font-size: 12px;
   }
@@ -376,17 +389,12 @@
     font-size: 11px;
     margin-top: 4px;
   }
-  .neutral-control {
-    gap: 5px;
-  }
-  .neutral-control .t-switch {
+  .neutral-control [data-slot="switch"] {
     flex-shrink: 0;
   }
-  .mode-control .t-radio-button {
+  .mode-control [data-slot="toggle-group-item"] {
     font-size: 10px;
-  }
-  .mode-control .t-radio-button__label {
-    gap: 4px !important;
+    gap: 4px;
   }
   .engine-note {
     font-size: 12px;
@@ -409,7 +417,7 @@
   .palette-heading h2 > span {
     font-size: 10px;
   }
-  .export-trigger.t-button {
+  .export-trigger {
     font-size: 10px;
     height: 30px;
     padding: 0 9px;
@@ -591,14 +599,14 @@
     width: 38px;
     height: 38px;
   }
-  .project-heading > .t-tag {
+  .project-heading .preview-badge {
     font-size: 10px;
     padding: 0 6px;
   }
-  .task-row .t-checkbox__label {
+  .task-row .task-label {
     font-size: 11px;
   }
-  .preview-actions .t-button {
+  .preview-actions .preview-button {
     font-size: 11px;
     padding: 0 12px;
   }
@@ -653,21 +661,17 @@
   .site-footer > a {
     font-size: 12px;
   }
-  .toast {
-    font-size: 11px;
-    bottom: calc(18px + env(safe-area-inset-bottom));
-  }
-  .t-dialog__body {
-    padding: 16px !important;
+  .export-dialog {
+    padding: 18px;
   }
   .export-description {
     font-size: 12px;
   }
-  .export-actions .t-button {
+  .export-actions .export-button {
     font-size: 12px;
   }
   /* Keep focusable text fields at 16px so iOS Safari does not zoom the page. */
-  .preview-field .t-input {
+  .preview-field .preview-input {
     font-size: 16px;
   }
   .export-code {
@@ -689,60 +693,4 @@
   .preset:hover {
     transform: none;
   }
-}
-
-/* Preserve compact controls without letting TDesign's default wrapping split modes. */
-.mode-control.t-radio-group {
-  flex-wrap: nowrap;
-}
-.mode-control .t-radio-button {
-  min-width: 0;
-  padding: 0 8px;
-}
-.mode-control .t-radio-group__bg-block {
-  display: none;
-}
-.preview-frame .t-button--theme-default.t-is-disabled {
-  color: var(--preview-muted);
-  background: var(--preview-bg);
-  border-color: var(--preview-border);
-}
-@media (max-width: 640px) {
-  .controls {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  }
-  .presets {
-    grid-template-columns: repeat(4, 1fr);
-    gap: 6px;
-  }
-  .preset {
-    width: 24px;
-    height: 24px;
-  }
-  .neutral-control {
-    flex-wrap: wrap;
-  }
-}
-.dialog-close {
-  border: 0;
-  background: transparent;
-  color: #536176;
-  width: 32px;
-  height: 32px;
-  font-size: 26px;
-  line-height: 1;
-  display: grid;
-  place-items: center;
-  border-radius: 5px;
-}
-.dialog-close:hover {
-  background: #eef2f8;
-}
-.t-radio-button:focus-visible {
-  outline: 3px solid #2674f7;
-  outline-offset: 3px;
-}
-.t-radio-button:has(input:focus-visible) {
-  outline: 3px solid #2674f7;
-  outline-offset: 3px;
 }

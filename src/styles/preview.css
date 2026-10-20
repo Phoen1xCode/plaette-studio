@@ -38,7 +38,7 @@
   justify-content: space-between;
   padding: 0 20px;
   border-bottom: 1px solid var(--preview-border);
-  font-family: monospace;
+  font-family: inherit;
   font-size: 10px;
   letter-spacing: 0.4px;
   color: var(--preview-muted);
@@ -56,7 +56,7 @@
 }
 .preview-mode {
   font-size: 10px;
-  font-family: "Manrope Variable", sans-serif;
+  font-family: inherit;
   letter-spacing: 0.7px;
 }
 .preview-content {
@@ -98,11 +98,15 @@
   margin-top: 4px;
   overflow-wrap: anywhere;
 }
-.project-heading > .t-tag {
+.preview-badge {
   margin-left: auto;
   flex-shrink: 0;
-  font-size: 10px;
   height: 22px;
+  font-size: 10px;
+  font-weight: 500;
+  border-radius: 5px;
+  background: var(--preview-subtle);
+  color: var(--preview-accent);
 }
 .preview-description {
   color: var(--preview-muted);
@@ -121,20 +125,45 @@
   font-weight: 500;
   color: var(--preview-accent);
 }
-.project-card .t-radio-group {
+.preview-progress-track {
+  height: 5px;
+  border-radius: 99px;
+  background: var(--preview-border);
+}
+.preview-progress-indicator {
+  border-radius: 99px;
+  background: var(--preview-accent);
+}
+.project-card .task-filter[data-slot="toggle-group"] {
+  display: flex;
+  width: fit-content;
+  gap: 0;
   margin-top: 24px;
   background: var(--preview-bg);
   height: 29px;
   padding: 3px;
-  border-radius: 5px;
+  border-radius: 6px;
 }
-.project-card .t-radio-button {
+.project-card .task-filter [data-slot="toggle-group-item"] {
+  display: flex;
+  align-items: center;
   height: 23px;
-  line-height: 23px;
-  font-size: 10px;
+  padding: 0 10px;
+  border: 0;
   border-radius: 3px;
+  background: transparent;
+  box-shadow: none;
+  font-size: 10px;
+  color: var(--preview-muted);
 }
-.project-card .t-radio-button.t-is-checked {
+.project-card .task-filter [data-slot="toggle-group-item"]:hover {
+  background: transparent;
+  color: var(--preview-text);
+}
+.project-card .task-filter [data-slot="toggle-group-item"][aria-pressed="true"],
+.project-card
+  .task-filter
+  [data-slot="toggle-group-item"][aria-pressed="true"]:hover {
   background: var(--preview-surface);
   color: var(--preview-accent);
 }
@@ -150,18 +179,17 @@
   border-bottom: 1px solid var(--preview-border);
   gap: 10px;
 }
-.task-row .t-checkbox__label {
+.task-label {
+  display: flex;
+  align-items: center;
+  gap: 9px;
   font-size: 11px;
-  padding-left: 9px;
-  white-space: normal;
-}
-.task-row .t-checkbox {
-  height: auto;
   line-height: 1.7;
   padding: 7px 0;
+  cursor: pointer;
 }
 .task-index {
-  font-family: monospace;
+  font-family: inherit;
   color: var(--preview-muted);
   font-size: 10px;
 }
@@ -206,12 +234,14 @@
   display: block;
   margin-top: 24px;
 }
-.preview-field > .t-input__wrap {
+.preview-field .preview-input {
   margin-top: 9px;
-}
-.preview-field .t-input {
   height: 36px;
   font-size: 12px;
+  border-radius: 7px;
+  border-color: var(--preview-border);
+  background: var(--preview-surface);
+  color: var(--preview-text);
 }
 .sync-setting {
   display: flex;
@@ -258,9 +288,16 @@
   margin-top: 25px;
   flex-wrap: wrap;
 }
-.preview-actions .t-button {
-  font-size: 11px;
+.preview-button {
   height: 33px;
+  font-size: 11px;
+  gap: 7px;
+  border-radius: 7px;
+}
+.preview-button:disabled {
+  color: var(--preview-muted);
+  background: var(--preview-bg);
+  border-color: var(--preview-border);
 }
 .preview-contrast {
   font-size: 10px;
@@ -279,36 +316,24 @@
   padding: 15px 0;
   color: var(--preview-accent);
 }
-/* Native TDesign controls inside the dark preview should render dark. */
+/* Native controls inside the dark preview should render dark. */
 .preview-frame[data-preview-mode="dark"] {
   color-scheme: dark;
 }
-.preview-frame .t-switch:not(.t-is-checked) {
+.preview-frame [data-slot="switch"][data-unchecked] {
   background-color: var(--preview-muted);
 }
-.preview-frame .t-switch__handle {
+.preview-frame [data-slot="switch-thumb"] {
   background: #fff;
 }
-.preview-frame
-  .t-button--variant-base.t-button--theme-primary:not(.t-is-disabled) {
-  color: var(--td-text-color-anti);
-}
-.preview-frame .t-checkbox__input {
+.preview-frame [data-slot="checkbox"] {
   border-color: var(--preview-muted);
+  border-radius: 4px;
 }
-/* TDesign's own focus glow uses --td-brand-color-focus, which we map to the
-   lightest shade; on a white surface it is invisible. Give the focused input
-   the same solid 2px accent ring the checkboxes already get. */
-.preview-frame .t-input.t-input--focused,
-.preview-frame .t-input:focus {
-  box-shadow: 0 0 0 2px var(--preview-accent);
+.preview-frame [data-slot="checkbox"]:not([data-checked]) {
+  background: transparent;
 }
-/* Expand the switch hit area beyond its 32x20 visual box (WCAG 2.5.8). */
-.sync-setting .t-switch {
-  position: relative;
-}
-.sync-setting .t-switch::after {
-  content: "";
-  position: absolute;
-  inset: -6px -10px;
+.preview-frame [data-slot="checkbox"][data-checked] {
+  background: var(--preview-accent);
+  border-color: var(--preview-accent);
 }
