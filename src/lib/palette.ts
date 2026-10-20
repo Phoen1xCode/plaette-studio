@@ -3,6 +3,7 @@ import { converter, formatHex, parse, type Oklch, type Rgb } from "culori";
 
 export type HexColor = `#${string}`;
 export type Palette = readonly [
+  lightest: HexColor,
   HexColor,
   HexColor,
   HexColor,
@@ -11,8 +12,7 @@ export type Palette = readonly [
   HexColor,
   HexColor,
   HexColor,
-  HexColor,
-  HexColor,
+  darkest: HexColor,
 ];
 export type ColorMode = "light" | "dark";
 export interface PaletteOptions {
@@ -37,7 +37,7 @@ const ACHROMATIC_EPSILON = 0.0001;
 
 export class ColorInputError extends Error {
   constructor(
-    message = "请输入有效的不透明颜色，如 #0052D9、rgb(0 82 217) 或 oklch(50% 0.2 260)。",
+    message = "Please enter a valid opaque color, such as #0052D9, rgb(0 82 217), or oklch(50% 0.2 260).",
   ) {
     super(message);
     this.name = "ColorInputError";
@@ -89,7 +89,7 @@ export function normalizeColor(input: string): HexColor {
     throw new ColorInputError();
   if ((rgb.alpha ?? 1) !== 1)
     throw new ColorInputError(
-      "暂不接受透明色。请先在目标背景上合成，再输入不透明颜色。",
+      "Transparent colors are not supported. Composite the color onto the target background first, then enter an opaque color.",
     );
   const lch = toOklch(rgb);
   if (!Number.isFinite(lch.l) || !Number.isFinite(lch.c))

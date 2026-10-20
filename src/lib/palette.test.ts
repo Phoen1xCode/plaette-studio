@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it } from "vite-plus/test";
 import { converter } from "culori";
 import {
   ColorInputError,
@@ -14,7 +14,7 @@ import {
 import {
   createPreviewTokens,
   exportTheme,
-  tdesignVariables,
+  previewVariables,
 } from "@/lib/theme";
 
 const representative = [
@@ -262,7 +262,7 @@ describe("portable exports", () => {
     expect(css).toContain('[data-theme="dark"] {');
     for (const mode of ["light", "dark"] as const) {
       for (const [key, value] of Object.entries(
-        tdesignVariables(theme, mode),
+        previewVariables(theme, mode),
       )) {
         expect(css).toContain(`${key}: ${value};`);
       }
